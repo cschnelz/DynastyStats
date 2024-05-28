@@ -53,6 +53,14 @@ class Team:
             backups = backups.iloc[index]
         return backups
 
+    def combined_starter_score(self):
+        return self.scores['starter_score']
+
+    def position_starter_score(self, position: POSITIONS):
+        return self.scores['starters'][position.name]
+    
+    def position_bench_score(self, position: POSITIONS):
+        return self.scores['bench'][position.name]
 
 def build_league(rosters: pd.DataFrame, players: pd.DataFrame, projections: pd.DataFrame, ktc: pd.DataFrame, fantasy_calc: pd.DataFrame) -> list[Team]:
   league = []
